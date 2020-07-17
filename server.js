@@ -1,4 +1,9 @@
+const http2 = require('http2'),
+server  = http2.createServer();
 
+server.on('error', (err) => console.error(err));
+
+server.on('stream', (stream, headers) => {
   stream.on('timeout', function(err){
     console.log('timeout')
 
